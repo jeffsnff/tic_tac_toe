@@ -8,6 +8,8 @@ namespace Tic_Tac_Toe
     {
       Player playerOne = new Player(Convert.ToChar("X"));
       Player playerTwo = new Player(Convert.ToChar("O"));
+
+      Grid board = new Grid(9);
     }
   }
 }
