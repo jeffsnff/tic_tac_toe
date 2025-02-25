@@ -7,10 +7,10 @@ namespace Tic_Tac_Toe
     public readonly Char name;
     public int[] positions;
 
-    public Player(Char playerName){
+    public Player(Char playerName)
+    {
       this.name = playerName;
     }
 
   }
 }
-

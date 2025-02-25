@@ -13,15 +13,20 @@ namespace Tic_Tac_Toe
       this.gridArray = CreateArray(number, gridArray);
     }
 
-    public void DrawBoard(){
+    public void DrawBoard()
+    {
       PrintGrid(this.gridArray);
       Console.WriteLine();
     }
 
-    public void UpdateBoard(byte playerMove, Char name){
-      if(this.gridArray.Contains(playerMove.ToString())){
-        this.gridArray[Convert.ToInt32(playerMove)-1] = name.ToString();
-      }else{
+    public void UpdateBoard(byte playerMove, Char name)
+    {
+      if (this.gridArray.Contains(playerMove.ToString()))
+      {
+        this.gridArray[Convert.ToInt32(playerMove) - 1] = name.ToString();
+      }
+      else
+      {
         Console.WriteLine("That space is not available.");
       }
     }

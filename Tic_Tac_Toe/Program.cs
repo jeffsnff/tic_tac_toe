@@ -11,7 +11,7 @@ namespace Tic_Tac_Toe
       Grid board = new Grid(9);
       Boolean gameOver = false;
       byte turn = 1;
-      
+
       Intro();
       while (!gameOver)
       {
