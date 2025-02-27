@@ -5,7 +5,7 @@ namespace Tic_Tac_Toe
 {
   internal class Grid
   {
-    string[] gridArray;
+    private string[] gridArray;
 
     public Grid(byte number)
     {
@@ -54,6 +54,21 @@ namespace Tic_Tac_Toe
         }
       }
       Console.WriteLine();
+    }
+    public bool GameStatus()
+    {
+      bool row1 = gridArray[0] == gridArray[1] && gridArray[1] == gridArray[2];
+      bool row2 = gridArray[3] == gridArray[4] && gridArray[4] == gridArray[5];
+      bool row3 = gridArray[6] == gridArray[7] && gridArray[7] == gridArray[8];
+
+      bool col1 = gridArray[0] == gridArray[3] && gridArray[3] == gridArray[6];
+      bool col2 = gridArray[1] == gridArray[4] && gridArray[4] == gridArray[7];
+      bool col3 = gridArray[2] == gridArray[5] && gridArray[5] == gridArray[8];
+
+      bool diagDown = gridArray[0] == gridArray[4] && gridArray[4] == gridArray[8];
+      bool diagUp = gridArray[6] == gridArray[4] && gridArray[4] == gridArray[2];
+
+      return row1 || row2 || row3 || col1 || col2 || col3 || diagDown || diagUp;
     }
   }
 }
