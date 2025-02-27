@@ -27,6 +27,12 @@ namespace Tic_Tac_Toe
             continue;
           }
           board.UpdateBoard(playerMove, playerTwo.name);
+
+          if (board.GameStatus())
+          {
+            Console.WriteLine($"Player {playerTwo.name} has won!");
+            break;
+          }
         }
         else
         {
@@ -38,10 +44,15 @@ namespace Tic_Tac_Toe
             continue;
           }
           board.UpdateBoard(playerMove, playerOne.name);
+         
+          if (board.GameStatus())
+          {
+            Console.WriteLine($"Player {playerOne.name} has won!");
+            break;
+          }
         }
         turn++;
       }
-
     }
 
     private static void Intro()
