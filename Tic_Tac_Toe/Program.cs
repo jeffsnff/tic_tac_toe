@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata;
 
 namespace Tic_Tac_Toe
 {
@@ -8,12 +9,11 @@ namespace Tic_Tac_Toe
     {
       Player playerOne = new Player(Convert.ToChar("X"));
       Player playerTwo = new Player(Convert.ToChar("O"));
-      Grid board = new Grid(9);
-      Boolean gameOver = false;
+      Grid board = new Grid();
       byte turn = 1;
 
       Intro();
-      while (!gameOver)
+      while (!board.GameStatus())
       {
         byte playerMove;
         board.DrawBoard();
@@ -27,12 +27,7 @@ namespace Tic_Tac_Toe
             continue;
           }
           board.UpdateBoard(playerMove, playerTwo.name);
-
-          if (board.GameStatus())
-          {
-            Console.WriteLine($"Player {playerTwo.name} has won!");
-            break;
-          }
+          CheckWin(board, playerTwo);
         }
         else
         {
@@ -44,17 +39,20 @@ namespace Tic_Tac_Toe
             continue;
           }
           board.UpdateBoard(playerMove, playerOne.name);
-         
-          if (board.GameStatus())
-          {
-            Console.WriteLine($"Player {playerOne.name} has won!");
-            break;
-          }
+
+          CheckWin(board, playerOne);
         }
         turn++;
       }
     }
-
+    private static void CheckWin(Grid board, Player player)
+    {
+      if (board.GameStatus())
+      {
+        board.DrawBoard();
+        Console.WriteLine($"Player {player.name} has won!");
+      }
+    }
     private static void Intro()
     {
       Console.Clear();
