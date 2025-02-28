@@ -13,7 +13,7 @@ namespace Tic_Tac_Toe
       byte turn = 1;
 
       Intro();
-      while (!board.GameStatus())
+      while (!board.ThreeInRow())
       {
         byte playerMove;
         board.DrawBoard();
@@ -47,7 +47,7 @@ namespace Tic_Tac_Toe
     }
     private static void CheckWin(Grid board, Player player)
     {
-      if (board.GameStatus())
+      if (board.ThreeInRow())
       {
         board.DrawBoard();
         Console.WriteLine($"Player {player.name} has won!");
@@ -57,6 +57,7 @@ namespace Tic_Tac_Toe
     {
       Console.Clear();
       Console.WriteLine("Welcome to Tic Tac Toe\n\n");
+      Console.ReadKey();
     }
   }
 }
