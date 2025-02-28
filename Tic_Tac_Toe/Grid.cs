@@ -7,11 +7,7 @@ namespace Tic_Tac_Toe
   {
     private string[] gridArray = new string[] {"1","2","3","4","5","6","7","8","9"};
 
-    public Grid()
-    {
-      // this.gridArray = CreateArray(gridArray);
-    }
-
+    public Grid(){ }
     public void DrawBoard()
     {
       Console.Clear();
@@ -32,7 +28,6 @@ namespace Tic_Tac_Toe
       Console.WriteLine();
       Console.WriteLine();
     }
-
     public void UpdateBoard(byte playerMove, Char name)
     {
       if (this.gridArray.Contains(playerMove.ToString()))
@@ -44,31 +39,6 @@ namespace Tic_Tac_Toe
         Console.WriteLine("That space is not available.");
       }
     }
-    private static string[] CreateArray(string[] gridArray)
-    {
-      for (int i = 1; i <= gridArray.Length; i++)
-      {
-        gridArray[i - 1] = i.ToString();
-      }
-      return gridArray;
-    }
-
-    // private static void PrintGrid(string[] gridArray)
-    // {
-    //   for (int j = 1; j <= 9; j++)
-    //   {
-    //     Console.Write($" {gridArray[j - 1]}");
-    //     if (j % 3 != 0)
-    //     {
-    //       Console.Write(" |");
-    //     }
-    //     if (j % 3 == 0 && j < 7)
-    //     {
-    //       Console.Write("\n--- --- ---\n");
-    //     }
-    //   }
-    //   Console.WriteLine();
-    // }
     public bool ThreeInRow()
     {
       bool row1 = gridArray[0] == gridArray[1] && gridArray[1] == gridArray[2];
