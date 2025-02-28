@@ -69,7 +69,7 @@ namespace Tic_Tac_Toe
     //   }
     //   Console.WriteLine();
     // }
-    public bool GameStatus()
+    public bool ThreeInRow()
     {
       bool row1 = gridArray[0] == gridArray[1] && gridArray[1] == gridArray[2];
       bool row2 = gridArray[3] == gridArray[4] && gridArray[4] == gridArray[5];
