@@ -30,12 +30,7 @@ Tic Tac Toe is a console application game built using C#. This was a boss fight 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
 1. Install Visual Studio Code
 2. Install C# Dev Kit
 
