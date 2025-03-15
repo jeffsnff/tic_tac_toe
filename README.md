@@ -53,7 +53,7 @@ Play a game with a friend or a signifigant other!
 
 <!-- ROADMAP -->
 ## Roadmap
-As of right now I have no roadmap for this project. I am back to learning the course and I plan on building other projects in the future.
+When I presented this project to some other developers, one had a few suggestions which I documented in the issues section of the repository. Around August, I plan on working on these changes after learning some more.
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
