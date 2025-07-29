@@ -7,8 +7,8 @@ namespace Tic_Tac_Toe
   {
     public static void Main(string[] args)
     {
-      Player playerOne = new Player(Convert.ToChar("X"));
-      Player playerTwo = new Player(Convert.ToChar("O"));
+      Player playerOne = new Player("X");
+      Player playerTwo = new Player("O");
       Grid board = new Grid();
       byte turn = 1;
 

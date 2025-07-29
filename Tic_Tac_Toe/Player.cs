@@ -4,9 +4,9 @@ namespace Tic_Tac_Toe
 {
   internal class Player
   {
-    public readonly Char name;
+    public readonly string name;
 
-    public Player(Char playerName)
+    public Player(string playerName)
     {
       this.name = playerName;
     }
