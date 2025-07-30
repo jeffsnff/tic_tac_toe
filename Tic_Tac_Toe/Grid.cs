@@ -28,7 +28,7 @@ namespace Tic_Tac_Toe
       Console.WriteLine();
       Console.WriteLine();
     }
-    public void UpdateBoard(byte playerMove, string name)
+    public void UpdateBoard(int playerMove, string name)
     {
       if (this.gridArray.Contains(playerMove.ToString()))
       {
