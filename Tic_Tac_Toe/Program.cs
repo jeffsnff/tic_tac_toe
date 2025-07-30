@@ -7,20 +7,20 @@ namespace Tic_Tac_Toe
   {
     public static void Main(string[] args)
     {
-      Player playerOne = new Player(Convert.ToChar("X"));
-      Player playerTwo = new Player(Convert.ToChar("O"));
+      Player playerOne = new Player("X");
+      Player playerTwo = new Player("O");
       Grid board = new Grid();
-      byte turn = 1;
+      int turn = 1;
 
       Intro();
       while (!board.ThreeInRow())
       {
-        byte playerMove;
+        int playerMove;
         board.DrawBoard();
         if (turn % 2 == 0)
         {
           Console.Write($"Player {playerTwo.name} choose a location: ");
-          playerMove = Convert.ToByte(Console.ReadLine());
+          playerMove = Convert.ToInt32(Console.ReadLine());
           if (playerMove < 1 || playerMove > 9)
           {
             Console.WriteLine($"{playerMove} is an invalid selection.\nPlease try again.");
@@ -32,7 +32,7 @@ namespace Tic_Tac_Toe
         else
         {
           Console.Write($"Player {playerOne.name} choose a location: ");
-          playerMove = Convert.ToByte(Console.ReadLine());
+          playerMove = Convert.ToInt32(Console.ReadLine());
           if (playerMove < 1 || playerMove > 9)
           {
             Console.WriteLine($"{playerMove} is an invalid selection.\nPlease try again.");
