@@ -30,6 +30,11 @@ namespace Tic_Tac_Toe
             }
             board.UpdateBoard(playerMove, playerTwo.name);
             CheckWin(board, playerTwo);
+            turn++;
+          }
+          else
+          {
+            Console.WriteLine("\nThat is not an option");
           }
         }
         else
@@ -46,9 +51,14 @@ namespace Tic_Tac_Toe
             board.UpdateBoard(playerMove, playerOne.name);
 
             CheckWin(board, playerOne);
+            turn++;
+          }
+          else
+          {
+            Console.WriteLine("\nThat is not an option");
+            Console.ReadKey();
           }
         }
-        turn++;
       }
     }
     private static void CheckWin(Grid board, Player player)
