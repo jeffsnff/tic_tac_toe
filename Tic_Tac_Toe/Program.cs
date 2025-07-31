@@ -19,6 +19,7 @@ namespace Tic_Tac_Toe
         board.DrawBoard();
         if (turn % 2 == 0)
         {
+          // TODO: Consider refactoring this logic into a helper function since it is also used above.
           Console.Write($"Player {playerTwo.name} choose a location: ");
           if (int.TryParse(Console.ReadLine(), out playerMove))
           {
@@ -33,6 +34,7 @@ namespace Tic_Tac_Toe
         }
         else
         {
+          // TODO: Consider refactoring this logic into a helper function since it is also used above.
           Console.Write($"Player {playerOne.name} choose a location: ");
           if (int.TryParse(Console.ReadLine(), out playerMove))
           {
