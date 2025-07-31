@@ -1,4 +1,5 @@
 using System;
+using System.Dynamic;
 using System.Linq;
 
 namespace Tic_Tac_Toe
@@ -6,8 +7,9 @@ namespace Tic_Tac_Toe
   internal class Grid
   {
     private string[] gridArray = new string[] {"1","2","3","4","5","6","7","8","9"};
+    private int turn { get; set; } = 1;
 
-    public Grid(){ }
+    public Grid() { }
     public void DrawBoard()
     {
       Console.Clear();
@@ -27,6 +29,23 @@ namespace Tic_Tac_Toe
       }
       Console.WriteLine();
       Console.WriteLine();
+    }
+
+    public bool LegalMove(int playerMove)
+    {
+      if (playerMove < 1 || playerMove > 9)
+      {
+        return false;
+      }
+      return true;
+    }
+    public int Turn
+    {
+      get { return turn; }
+    }
+    public void NextTurn()
+    {
+      turn++;
     }
     public void UpdateBoard(int playerMove, Symbol player)
     {
