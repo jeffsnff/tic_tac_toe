@@ -15,6 +15,29 @@ namespace Tic_Tac_Toe
     {
       return symbol;
     }
+
+    public void PlayerMove(Board board)
+    {
+      while (true)
+      {
+        int playerMove;
+        Console.Write($"Player {GetSymbol()} choose a location: ");
+        if (int.TryParse(Console.ReadLine(), out playerMove))
+        {
+          if (board.LegalMove(playerMove))
+          {
+            board.UpdateBoard(playerMove, GetSymbol());
+          }
+        }
+        else
+        {
+          Console.WriteLine("\nThat is not an option");
+          Console.ReadKey();
+          continue;
+        }
+        break;
+      }
+    }
   }
 }
 
