@@ -10,7 +10,6 @@ namespace Tic_Tac_Toe
       Player playerOne = new Player(Symbol.X);
       Player playerTwo = new Player(Symbol.O);
       Board board = new Board();
-      Player currentPlayer;
 
       Intro();
       while (!board.ThreeInRow())
@@ -18,37 +17,15 @@ namespace Tic_Tac_Toe
         board.DrawBoard();
         if (board.Turn % 2 == 0)
         {
-          currentPlayer = playerTwo;
+          playerTwo.PlayerMove(board);
+          board.CheckWin(playerTwo);
         }
         else
         {
-          currentPlayer = playerOne;
+          playerOne.PlayerMove(board);
+          board.CheckWin(playerOne);
         }
-        PlayerMove(currentPlayer, board);
-      }
-    }
-    static void PlayerMove(Player player, Board board)
-    {
-      int playerMove;
-      while (true)
-      {
-        Console.Write($"Player {player.GetSymbol()} choose a location: ");
-        if (int.TryParse(Console.ReadLine(), out playerMove))
-        {
-          if (board.LegalMove(playerMove))
-          {
-            board.UpdateBoard(playerMove, player.GetSymbol());
-            board.CheckWin(player);
-            board.NextTurn();
-          }
-        }
-        else
-        {
-          Console.WriteLine("\nThat is not an option");
-          Console.ReadKey();
-          continue;
-        }
-        break;
+        board.NextTurn();
       }
     }
     private static void Intro()
