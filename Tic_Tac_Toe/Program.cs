@@ -10,6 +10,7 @@ namespace Tic_Tac_Toe
       Player playerOne = new Player(Symbol.X);
       Player playerTwo = new Player(Symbol.O);
       Grid board = new Grid();
+      Player currentPlayer;
 
       Intro();
       while (!board.ThreeInRow())
@@ -17,12 +18,13 @@ namespace Tic_Tac_Toe
         board.DrawBoard();
         if (board.Turn % 2 == 0)
         {
-          PlayerMove(playerTwo, board);
+          currentPlayer = playerTwo;
         }
         else
         {
-          PlayerMove(playerOne, board);
+          currentPlayer = playerOne;
         }
+        PlayerMove(currentPlayer, board);
       }
     }
     private static void CheckWin(Grid board, Player player)
