@@ -28,11 +28,11 @@ namespace Tic_Tac_Toe
       Console.WriteLine();
       Console.WriteLine();
     }
-    public void UpdateBoard(int playerMove, string name)
+    public void UpdateBoard(int playerMove, Symbol player)
     {
       if (this.gridArray.Contains(playerMove.ToString()))
       {
-        this.gridArray[Convert.ToInt32(playerMove) - 1] = name.ToString();
+        this.gridArray[Convert.ToInt32(playerMove) - 1] = player.ToString();
       }
       else
       {
