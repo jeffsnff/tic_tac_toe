@@ -19,30 +19,46 @@ namespace Tic_Tac_Toe
         board.DrawBoard();
         if (turn % 2 == 0)
         {
+          // TODO: Consider refactoring this logic into a helper function since it is also used above.
           Console.Write($"Player {playerTwo.name} choose a location: ");
-          playerMove = Convert.ToInt32(Console.ReadLine());
-          if (playerMove < 1 || playerMove > 9)
+          if (int.TryParse(Console.ReadLine(), out playerMove))
           {
-            Console.WriteLine($"{playerMove} is an invalid selection.\nPlease try again.");
-            continue;
+            if (playerMove < 1 || playerMove > 9)
+            {
+              Console.WriteLine($"{playerMove} is an invalid selection.\nPlease try again.");
+              continue;
+            }
+            board.UpdateBoard(playerMove, playerTwo.name);
+            CheckWin(board, playerTwo);
+            turn++;
           }
-          board.UpdateBoard(playerMove, playerTwo.name);
-          CheckWin(board, playerTwo);
+          else
+          {
+            Console.WriteLine("\nThat is not an option");
+          }
         }
         else
         {
+          // TODO: Consider refactoring this logic into a helper function since it is also used above.
           Console.Write($"Player {playerOne.name} choose a location: ");
-          playerMove = Convert.ToInt32(Console.ReadLine());
-          if (playerMove < 1 || playerMove > 9)
+          if (int.TryParse(Console.ReadLine(), out playerMove))
           {
-            Console.WriteLine($"{playerMove} is an invalid selection.\nPlease try again.");
-            continue;
-          }
-          board.UpdateBoard(playerMove, playerOne.name);
+            if (playerMove < 1 || playerMove > 9)
+            {
+              Console.WriteLine($"{playerMove} is an invalid selection.\nPlease try again.");
+              continue;
+            }
+            board.UpdateBoard(playerMove, playerOne.name);
 
-          CheckWin(board, playerOne);
+            CheckWin(board, playerOne);
+            turn++;
+          }
+          else
+          {
+            Console.WriteLine("\nThat is not an option");
+            Console.ReadKey();
+          }
         }
-        turn++;
       }
     }
     private static void CheckWin(Grid board, Player player)
