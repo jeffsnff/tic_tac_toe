@@ -9,7 +9,7 @@ namespace Tic_Tac_Toe
     {
       Player playerOne = new Player(Symbol.X);
       Player playerTwo = new Player(Symbol.O);
-      Grid board = new Grid();
+      Board board = new Board();
       Player currentPlayer;
 
       Intro();
@@ -27,16 +27,7 @@ namespace Tic_Tac_Toe
         PlayerMove(currentPlayer, board);
       }
     }
-    private static void CheckWin(Grid board, Player player)
-    {
-      if (board.ThreeInRow())
-      {
-        board.DrawBoard();
-        Console.WriteLine($"Player {player.GetSymbol()} has won!");
-      }
-    }
-
-    static void PlayerMove(Player player, Grid board)
+    static void PlayerMove(Player player, Board board)
     {
       int playerMove;
       while (true)
@@ -47,7 +38,7 @@ namespace Tic_Tac_Toe
           if (board.LegalMove(playerMove))
           {
             board.UpdateBoard(playerMove, player.GetSymbol());
-            CheckWin(board, player);
+            board.CheckWin(player);
             board.NextTurn();
           }
         }

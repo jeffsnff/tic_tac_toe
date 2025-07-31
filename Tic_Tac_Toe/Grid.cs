@@ -4,12 +4,16 @@ using System.Linq;
 
 namespace Tic_Tac_Toe
 {
-  internal class Grid
+  internal class Board
   {
     private string[] gridArray = new string[] {"1","2","3","4","5","6","7","8","9"};
     private int turn { get; set; } = 1;
 
-    public Grid() { }
+    public Board() { }
+    public int Turn
+    {
+      get { return turn; }
+    }
     public void DrawBoard()
     {
       Console.Clear();
@@ -30,7 +34,14 @@ namespace Tic_Tac_Toe
       Console.WriteLine();
       Console.WriteLine();
     }
-
+    public void CheckWin(Player player)
+    {
+      if (ThreeInRow())
+      {
+        DrawBoard();
+        Console.WriteLine($"Player {player.GetSymbol()} has won!");
+      }
+    }
     public bool LegalMove(int playerMove)
     {
       if (playerMove < 1 || playerMove > 9)
@@ -39,10 +50,7 @@ namespace Tic_Tac_Toe
       }
       return true;
     }
-    public int Turn
-    {
-      get { return turn; }
-    }
+    
     public void NextTurn()
     {
       turn++;
