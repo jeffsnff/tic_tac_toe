@@ -54,6 +54,19 @@ Play a game with a friend or a signifigant other!
 <!-- ROADMAP -->
 ## Roadmap
 When I presented this project to some other developers, one had a few suggestions which I documented in the issues section of the repository. Around August, I plan on working on these changes after learning some more.
+### Update on Roadmap
+Spent two days refactoring this project. 
+I used issues and branching to track it in the issue tracker which was cool.
+
+I updated the types from byte and char to int and enum Symbol. The Symbol is used for when the game starts and assigns player one an X and player two an O.
+
+For the Player class I updated it to use Symbol enum instead. Made the field private and created a GetSymbol method, which I just realized as writing this could actually just be a getter. I configured it that way, but made the method wrong.
+
+For the Board class, I moved the turn variable into a field and added a getter and setter. Created a NextTurn method to update that by one, BUT implimented a getter method? correctly to just get the turn value from the Board object. I moved all the LegalMove logic into a method inside the Board class as well as CheckWin.
+
+I then moved the game logic into a method inside Program.cs which then gave me the confidence to move it into Player.cs.
+
+Refactoring this project, which I am sure there is more I can do, has given me better understanding of OOP, specifically encapsulation. I THINK, I could even create Interfaces for DrawBoard, CheckWin, LegalMove and UpdateBoard to practice Interfaces.
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
