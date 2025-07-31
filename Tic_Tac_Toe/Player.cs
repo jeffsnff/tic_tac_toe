@@ -4,11 +4,18 @@ namespace Tic_Tac_Toe
 {
   internal class Player
   {
-    public readonly string name;
+    private Symbol symbol { get; }
 
-    public Player(string playerName)
+    public Player(Symbol symbol)
     {
-      this.name = playerName;
+      this.symbol = symbol;
+    }
+
+    public Symbol GetSymbol()
+    {
+      return symbol;
     }
   }
 }
+
+enum Symbol {X,O};

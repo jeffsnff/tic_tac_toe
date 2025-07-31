@@ -7,8 +7,8 @@ namespace Tic_Tac_Toe
   {
     public static void Main(string[] args)
     {
-      Player playerOne = new Player("X");
-      Player playerTwo = new Player("O");
+      Player playerOne = new Player(Symbol.X);
+      Player playerTwo = new Player(Symbol.O);
       Grid board = new Grid();
       int turn = 1;
 
@@ -20,7 +20,7 @@ namespace Tic_Tac_Toe
         if (turn % 2 == 0)
         {
           // TODO: Consider refactoring this logic into a helper function since it is also used above.
-          Console.Write($"Player {playerTwo.name} choose a location: ");
+          Console.Write($"Player {playerTwo.GetSymbol()} choose a location: ");
           if (int.TryParse(Console.ReadLine(), out playerMove))
           {
             if (playerMove < 1 || playerMove > 9)
@@ -28,7 +28,7 @@ namespace Tic_Tac_Toe
               Console.WriteLine($"{playerMove} is an invalid selection.\nPlease try again.");
               continue;
             }
-            board.UpdateBoard(playerMove, playerTwo.name);
+            board.UpdateBoard(playerMove, playerTwo.GetSymbol());
             CheckWin(board, playerTwo);
             turn++;
           }
@@ -40,7 +40,7 @@ namespace Tic_Tac_Toe
         else
         {
           // TODO: Consider refactoring this logic into a helper function since it is also used above.
-          Console.Write($"Player {playerOne.name} choose a location: ");
+          Console.Write($"Player {playerOne.GetSymbol()} choose a location: ");
           if (int.TryParse(Console.ReadLine(), out playerMove))
           {
             if (playerMove < 1 || playerMove > 9)
@@ -48,7 +48,7 @@ namespace Tic_Tac_Toe
               Console.WriteLine($"{playerMove} is an invalid selection.\nPlease try again.");
               continue;
             }
-            board.UpdateBoard(playerMove, playerOne.name);
+            board.UpdateBoard(playerMove, playerOne.GetSymbol());
 
             CheckWin(board, playerOne);
             turn++;
@@ -66,7 +66,7 @@ namespace Tic_Tac_Toe
       if (board.ThreeInRow())
       {
         board.DrawBoard();
-        Console.WriteLine($"Player {player.name} has won!");
+        Console.WriteLine($"Player {player.GetSymbol()} has won!");
       }
     }
     private static void Intro()
