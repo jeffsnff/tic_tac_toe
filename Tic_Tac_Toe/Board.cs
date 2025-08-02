@@ -42,15 +42,8 @@ namespace Tic_Tac_Toe
         Console.WriteLine($"Player {player.GetSymbol()} has won!");
       }
     }
-    public bool LegalMove(int playerMove)
-    {
-      if (playerMove < 1 || playerMove > 9)
-      {
-        return false;
-      }
-      return true;
-    }
-    
+    public bool LegalMove(int playerMove) => (1 <= playerMove && playerMove <= 9);
+
     public void NextTurn()
     {
       turn++;
