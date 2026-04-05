@@ -22,19 +22,21 @@ namespace Tic_Tac_Toe
       {
         int playerMove;
         Console.Write($"Player {GetSymbol()} choose a location: ");
-        if (int.TryParse(Console.ReadLine(), out playerMove))
-        {
-          if (board.LegalMove(playerMove))
-          {
-            board.UpdateBoard(playerMove, GetSymbol());
-          }
-        }
-        else
+        if (!int.TryParse(Console.ReadLine(), out playerMove))
         {
           Console.WriteLine("\nThat is not an option");
           Console.ReadKey();
+          board.DrawBoard();
           continue;
         }
+        if(!board.LegalMove(playerMove))
+        {
+          Console.WriteLine("\nThat is not an option");
+          Console.ReadKey();
+          board.DrawBoard();
+          continue;
+        }
+        board.UpdateBoard(playerMove, GetSymbol());
         break;
       }
     }
