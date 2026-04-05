@@ -24,14 +24,15 @@ namespace Tic_Tac_Toe
         Console.Write($"Player {GetSymbol()} choose a location: ");
         if (!int.TryParse(Console.ReadLine(), out playerMove))
         {
-          Console.WriteLine("\nThat is not an option");
+          Console.WriteLine($"\nEnter a value between 1 - 9");
           Console.ReadKey();
           board.DrawBoard();
           continue;
         }
+        
         if(!board.LegalMove(playerMove))
         {
-          Console.WriteLine("\nThat is not an option");
+          Console.WriteLine($"\n{playerMove} is not an option");
           Console.ReadKey();
           board.DrawBoard();
           continue;
