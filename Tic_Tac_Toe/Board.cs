@@ -42,7 +42,15 @@ namespace Tic_Tac_Toe
         Console.WriteLine($"Player {player.GetSymbol()} has won!");
       }
     }
-    public bool LegalMove(int playerMove) => (1 <= playerMove && playerMove <= 9);
+
+    public bool LegalMove(int playerMove)
+    {
+      if (1 <= playerMove && playerMove <= 9 && gridArray.Contains(playerMove.ToString()))
+      {
+        return true;
+      }
+      return false;
+    }
 
     public void NextTurn()
     {
@@ -50,14 +58,7 @@ namespace Tic_Tac_Toe
     }
     public void UpdateBoard(int playerMove, Symbol player)
     {
-      if (this.gridArray.Contains(playerMove.ToString()))
-      {
-        this.gridArray[Convert.ToInt32(playerMove) - 1] = player.ToString();
-      }
-      else
-      {
-        Console.WriteLine("That space is not available.");
-      }
+      this.gridArray[Convert.ToInt32(playerMove) - 1] = player.ToString();
     }
     public bool ThreeInRow()
     {
